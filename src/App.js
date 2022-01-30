@@ -1,25 +1,23 @@
-import { useState, useEffect } from "react";
+import { useEffect, useContext } from "react";
 import MicRecorder from "mic-recorder-to-mp3";
 import identifySong from "./services/identifySongApi";
 import iTunesSearchApi from "./services/iTunesSearchApi";
+import AppContext from "./context/AppContext";
+import RecordButton from "./components/RecordButton";
 
 import "./App.css";
 
 const Mp3Recorder = new MicRecorder({ bitRate: 128 });
 
 function App() {
-  const [isRecording, setIsRecording] = useState(false);
-  const [identifiedSong, setIdentifiedSong] = useState({
-    album: "Midnight Room",
-    artist: "Springtime Carnivore",
-    genre: "Alternative",
-    release_year: "2016",
-    title: "Bad Dream Baby",
-  });
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-  }, []);
+  const {
+    isRecording,
+    setIsRecording,
+    identifiedSong,
+    setIdentifiedSong,
+    count,
+    setCount,
+  } = useContext(AppContext);
 
   const recognizeSong = async (file) => {
     const { data, identified } = await identifySong(file);
@@ -31,16 +29,14 @@ function App() {
     }
   };
 
-
-
   useEffect(() => {
     let timer;
-    if ( isRecording && count < 10){
+    if (isRecording && count < 10) {
       timer = setInterval(() => {
         setCount(count + 1);
       }, 1000);
     }
-    if(isRecording && count >= 10) stopRecording();
+    if (isRecording && count >= 10) stopRecording();
     return () => clearInterval(timer);
   }, [count]);
 
@@ -51,7 +47,7 @@ function App() {
         Mp3Recorder.start()
           .then(() => {
             setIsRecording(true);
-            setCount(1)
+            setCount(1);
           })
           .catch(console.error);
       });
@@ -65,8 +61,8 @@ function App() {
         const file = new File([blob], "file.mp3", {
           type: blob.type,
         });
-        if (file) recognizeSong(file);
-        const track = Mp3Recorder.activeStream.getTracks()[0]
+        // if (file) recognizeSong(file);
+        const track = Mp3Recorder.activeStream.getTracks()[0];
         track.stop();
         Mp3Recorder.activeStream.removeTrack(track);
       })
@@ -75,14 +71,9 @@ function App() {
 
   return (
     <div className="App">
-      <button
-        type="button"
-        onClick={isRecording ? stopRecording : startRecording}
-      >
-        Gravar
-      </button>
-      {isRecording && "Gravando..."}
-      <span>{count}</span>
+      <RecordButton stopRecording={stopRecording} startRecording={startRecording} />
+      {isRecording && "Escutando..."}
+      <span className="timer">{count}</span>
       <div className="identified-song">
         <img src={identifiedSong.artwork} alt="Capa do álbum" />
         <h2>{identifiedSong.title}</h2>
