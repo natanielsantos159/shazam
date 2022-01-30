@@ -61,7 +61,7 @@ function App() {
         const file = new File([blob], "file.mp3", {
           type: blob.type,
         });
-        // if (file) recognizeSong(file);
+        if (file) recognizeSong(file);
         const track = Mp3Recorder.activeStream.getTracks()[0];
         track.stop();
         Mp3Recorder.activeStream.removeTrack(track);
@@ -71,14 +71,25 @@ function App() {
 
   return (
     <div className="App">
-      <RecordButton stopRecording={stopRecording} startRecording={startRecording} />
+      <RecordButton
+        stopRecording={stopRecording}
+        startRecording={startRecording}
+      />
       {isRecording && "Escutando..."}
       <span className="timer">{count}</span>
       <div className="identified-song">
-        <img src={identifiedSong.artwork} alt="Capa do álbum" />
-        <h2>{identifiedSong.title}</h2>
-        <h3>{identifiedSong.album}</h3>
-        <h3>{identifiedSong.artist}</h3>
+        {identifiedSong.artwork && (
+          <img
+            className="song-artwork"
+            src={identifiedSong.artwork}
+            alt="Capa do álbum"
+          />
+        )}
+        <div className="song-info-wrapper">
+          <h2 className="song-title">{identifiedSong.title}</h2>
+          <h3 className="song-artist">{identifiedSong.artist}</h3>
+          <h3 className="song-album">{identifiedSong.album}</h3>
+        </div>
       </div>
     </div>
   );
