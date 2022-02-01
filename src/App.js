@@ -16,6 +16,7 @@ function App() {
     release_year: "2016",
     title: "Bad Dream Baby",
   });
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
   }, []);
@@ -30,6 +31,19 @@ function App() {
     }
   };
 
+
+
+  useEffect(() => {
+    let timer;
+    if ( isRecording && count < 10){
+      timer = setInterval(() => {
+        setCount(count + 1);
+      }, 1000);
+    }
+    if(isRecording && count >= 10) stopRecording();
+    return () => clearInterval(timer);
+  }, [count]);
+
   const startRecording = () => {
     navigator.mediaDevices
       .getUserMedia({ audio: true, video: false })
@@ -37,12 +51,9 @@ function App() {
         Mp3Recorder.start()
           .then(() => {
             setIsRecording(true);
-            setTimeout(() => {
-              if(isRecording) stopRecording()
-            }, 10000);
+            setCount(1)
           })
           .catch(console.error);
-        console.log(Mp3Recorder);
       });
   };
 
@@ -58,7 +69,6 @@ function App() {
         const track = Mp3Recorder.activeStream.getTracks()[0]
         track.stop();
         Mp3Recorder.activeStream.removeTrack(track);
-        console.log(Mp3Recorder.activeStream.getTracks())
       })
       .catch((e) => console.log(e));
   };
@@ -72,6 +82,7 @@ function App() {
         Gravar
       </button>
       {isRecording && "Gravando..."}
+      <span>{count}</span>
       <div className="identified-song">
         <img src={identifiedSong.artwork} alt="Capa do álbum" />
         <h2>{identifiedSong.title}</h2>
