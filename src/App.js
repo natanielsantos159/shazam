@@ -6,6 +6,7 @@ import AppContext from "./context/AppContext";
 import RecordButton from "./components/RecordButton";
 
 import "./App.css";
+import IdentifiedSongCard from "./components/IdentifiedSongCard";
 
 const Mp3Recorder = new MicRecorder({ bitRate: 128 });
 
@@ -77,20 +78,7 @@ function App() {
       />
       {isRecording && "Escutando..."}
       <span className="timer">{count}</span>
-      <div className="identified-song">
-        {identifiedSong.artwork && (
-          <img
-            className="song-artwork"
-            src={identifiedSong.artwork}
-            alt="Capa do álbum"
-          />
-        )}
-        <div className="song-info-wrapper">
-          <h2 className="song-title">{identifiedSong.title}</h2>
-          <h3 className="song-artist">{identifiedSong.artist}</h3>
-          <h3 className="song-album">{identifiedSong.album}</h3>
-        </div>
-      </div>
+      {identifiedSong && <IdentifiedSongCard />}
     </div>
   );
 }
