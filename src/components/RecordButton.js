@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import AppContext from "../context/AppContext";
 import microphoneIcon from "../images/microphone2.png";
+import '../styles/RecordButton.css';
 
 export default function RecordButton({ stopRecording, startRecording }) {
   const { isRecording } = useContext(AppContext);

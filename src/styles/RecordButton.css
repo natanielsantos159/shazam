@@ -1,0 +1,77 @@
+
+.record-button {
+  border-radius: 50%;
+  background-color: transparent;
+  /* backdrop-filter: blur(18px); */
+  /* box-shadow: 3px -1px 20px 6px rgb(0 0 0 / 25%), inset 1px 1px 0 hsl(0deg 0% 100% / 25%); */
+  /* background-image: linear-gradient(174deg, #bfb1b185, transparent); */
+  /* z-index: 1;  */
+  position: relative;
+  /* width: 190px;
+  height: 254px; */
+   height: 25vh;
+  width: 25vh;
+  padding: 1vh;
+  background: lightgrey;
+  box-shadow: #d11bff42 0 15px 40px -5px;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.record-button img {
+  height: 50%;
+}
+
+.card__content {
+  overflow: hidden;
+  border-radius: 50%;
+  background: linear-gradient(rgba(255, 255, 255, 0.473), rgba(150, 150, 150, 0.25));
+  z-index: 1;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.blob {
+ position: absolute;
+ z-index: -1;
+ border-radius: 5em;
+ width: 200px;
+ height: 200px;
+}
+
+.blob:nth-child(2) {
+ left: -50px;
+ top: -90px;
+ background: #0f5bff;
+}
+
+.blob:nth-child(3) {
+ left: 110px;
+ top: -20px;
+ z-index: -1;
+ /* background: #c25ee6; */
+ background: #5b88dc;
+
+}
+
+.blob:nth-child(4) {
+ left: -40px;
+ top: 100px;
+ background: #0c4fa6;
+}
+
+.blob:nth-child(5) {
+ left: 100px;
+ top: 180px;
+ background: #0061ff;
+}
+
