@@ -7,11 +7,14 @@ const iTunesSearchApi = async ({ album, artist, title }) => {
 
   const { results } = await APIResponse.json();
 
-  const { artworkUrl100 } = results.find(
-    ({ trackName, artistName, collectionName }) => {
-      return artistName === artist && collectionName === album && trackName === title
-    }
-  ) || results[0];
+  const { artworkUrl100 } =
+    results.find(({ trackName, artistName, collectionName }) => {
+      return (
+        artistName.toLowerCase() === artist.toLowerCase() &&
+        collectionName.toLowerCase() === album.toLowerCase() &&
+        trackName.toLowerCase() === title.toLowerCase()
+      );
+    }) || results[0] || {};
   if (artworkUrl100) return artworkUrl100;
 };
 
