@@ -10,7 +10,7 @@ export default function RecordButton({ stopRecording, startRecording }) {
     <button
       type="button"
       onClick={isRecording ? stopRecording : startRecording}
-      className="record-button"
+      className={`record-button ${isRecording ? 'is-recording': ''}`}
     >
       <div className="card__content">
         <img src={microphoneIcon} alt="Identificar" />
