@@ -81,7 +81,6 @@ function App() {
         startRecording={startRecording}
       />
       {isRecording && "Escutando..."}
-      <span className="timer">{count}</span>
       <MicVisualizer stream={stream} />
       {identifiedSong && <IdentifiedSongCard />}
     </div>
