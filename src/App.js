@@ -1,4 +1,4 @@
-import { useEffect, useContext } from "react";
+import { useEffect, useContext, useState } from "react";
 import MicRecorder from "mic-recorder-to-mp3";
 import identifySong from "./services/identifySongApi";
 import iTunesSearchApi from "./services/iTunesSearchApi";
@@ -7,6 +7,7 @@ import RecordButton from "./components/RecordButton";
 
 import "./App.css";
 import IdentifiedSongCard from "./components/IdentifiedSongCard";
+import MicVizualizer from "./components/MicVizualizer";
 
 const Mp3Recorder = new MicRecorder({ bitRate: 128 });
 
@@ -19,12 +20,13 @@ function App() {
     count,
     setCount,
   } = useContext(AppContext);
+  const [stream, setStream] = useState()
 
   const recognizeSong = async (file) => {
     const { data, identified } = await identifySong(file);
     if (identified) {
       setIdentifiedSong(data);
-      if (!data.artwork) data.artwork = await iTunesSearchApi(data)
+      if (!data.artwork) data.artwork = await iTunesSearchApi(data);
     }
   };
 
@@ -44,7 +46,8 @@ function App() {
       .getUserMedia({ audio: true, video: false })
       .then(() => {
         Mp3Recorder.start()
-          .then(() => {
+          .then((stream) => {
+            setStream(stream);
             setIsRecording(true);
             setCount(1);
           })
@@ -76,6 +79,7 @@ function App() {
       />
       {isRecording && "Escutando..."}
       <span className="timer">{count}</span>
+      <MicVizualizer stream={stream} />
       {identifiedSong && <IdentifiedSongCard />}
     </div>
   );
