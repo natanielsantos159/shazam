@@ -12,7 +12,7 @@
   display: grid;
   border-radius: 20px;
   grid-template-rows: 1fr;
-  grid-template-columns: 2fr 2.5fr;
+  grid-template-columns: 1fr 2fr;
   gap: 15px;
   padding: 14px 40px;
   grid-template-areas: "song-artwork song-info-wrapper"
@@ -25,6 +25,7 @@
 
 .identified-song .song-artwork {
   height: 130px;
+  width: 130px;
 }
 
 .song-info-wrapper {
