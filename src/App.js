@@ -26,7 +26,10 @@ function App() {
     const { data, identified } = await identifySong(file);
     if (identified) {
       setIdentifiedSong(data);
-      if (!data.artwork) data.artwork = await iTunesSearchApi(data);
+      if (!data.artwork) {
+        const artwork = await iTunesSearchApi(data);
+        setIdentifiedSong({ ...data, artwork });
+      }
     }
   };
 
