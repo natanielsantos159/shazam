@@ -7,7 +7,7 @@ import RecordButton from "./components/RecordButton";
 
 import "./App.css";
 import IdentifiedSongCard from "./components/IdentifiedSongCard";
-import MicVizualizer from "./components/MicVizualizer";
+import MicVisualizer from "./components/MicVisualizer";
 
 const Mp3Recorder = new MicRecorder({ bitRate: 128 });
 
@@ -79,7 +79,7 @@ function App() {
       />
       {isRecording && "Escutando..."}
       <span className="timer">{count}</span>
-      <MicVizualizer stream={stream} />
+      <MicVisualizer stream={stream} />
       {identifiedSong && <IdentifiedSongCard />}
     </div>
   );
