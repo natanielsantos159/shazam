@@ -1,0 +1,20 @@
+.vizualizer{
+  height: 50px;
+  width: auto;
+  display:flex;
+  gap: 4px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.line {
+  background-color: white;
+  width: 4px;
+  min-height: 3px;
+  border-radius: 3px;
+}
+
+.line.isRecording {
+  height: 43px;
+  transform: scaleY( .5 );
+}
