@@ -10,13 +10,15 @@
   padding: 14px 20px;
   min-height: 134px;
   grid-template-areas: "song-artwork song-info-wrapper"
-  "song-artwork song-info-wrapper";
+  "song-artwork song-info-wrapper"
+  "links-container links-container";
   box-shadow: 10px 10px 20px rgba(0,0,0,.25),inset 1px 1px 0 hsla(0,0%,100%,.25);
   justify-content: center;
   justify-items: center;
   align-items: center;
   position: absolute;
   bottom: 12vh;
+  max-width: 400px;
 }
 
 .identified-song .song-artwork {
@@ -42,6 +44,21 @@
 
 .song-title {
   font-size: 19px;
+}
+
+.links-container {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  grid-area: links-container;
+}
+
+.links-container a {
+  padding: 10px;
+}
+
+.links-container img {
+  height: 33px;
 }
 
 @keyframes slideUp {

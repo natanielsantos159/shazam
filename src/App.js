@@ -21,6 +21,8 @@ function App() {
     setCount,
     identified,
     setIdentified,
+    itunesUrl,
+    setItunesUrl,
   } = useContext(AppContext);
   const [stream, setStream] = useState()
 
@@ -29,10 +31,9 @@ function App() {
     setIdentified(indentifiedBool);
     if (indentifiedBool) {
       setIdentifiedSong(data);
-      if (!data.artwork) {
-        const artwork = await iTunesSearchApi(data);
-        setIdentifiedSong({ ...data, artwork });
-      }
+      const { artwork, trackUrl } = await iTunesSearchApi(data);
+      if (!data.artwork) setIdentifiedSong({ ...data, artwork });
+      setItunesUrl(trackUrl);
     }
   };
 

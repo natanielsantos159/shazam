@@ -14,7 +14,8 @@ export default function Provider({ children }) {
   const [isRecording, setIsRecording] = useState(false);
   const [identifiedSong, setIdentifiedSong] = useState();
   const [count, setCount] = useState(0);
-  const [identified, setIdentified] = useState()
+  const [identified, setIdentified] = useState();
+  const [itunesUrl, setItunesUrl] = useState();
 
   const contextValues = {
     isRecording,
@@ -25,6 +26,8 @@ export default function Provider({ children }) {
     setCount,
     identified,
     setIdentified,
+    itunesUrl,
+    setItunesUrl,
   };
   return (
     <AppContext.Provider value={contextValues}>{children}</AppContext.Provider>

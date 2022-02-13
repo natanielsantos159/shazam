@@ -7,8 +7,8 @@ const iTunesSearchApi = async ({ album, artist, title }) => {
     const APIResponse = await fetch(getAlbumsAPI);
   
     const { results } = await APIResponse.json();
-  
-    const { artworkUrl100 } =
+    console.log(results)
+    const { artworkUrl100, trackViewUrl } =
       results.find(({ trackName, artistName, collectionName }) => {
         return (
           artistName.toLowerCase() === artist.toLowerCase() &&
@@ -16,7 +16,11 @@ const iTunesSearchApi = async ({ album, artist, title }) => {
           trackName.toLowerCase() === title.toLowerCase()
         );
       }) || results[0] || {};
-    if (artworkUrl100) return artworkUrl100.replace('100x100', '300x300');
+
+    if (artworkUrl100) return {
+      artwork: artworkUrl100.replace('100x100', '300x300'),
+      trackUrl: trackViewUrl
+    };
   } catch (err) {
     console.error(err);
   }
