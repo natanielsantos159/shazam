@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/shazam/static/css/main.84a5d604.chunk.css",
+    "main.js": "/shazam/static/js/main.9ff85429.chunk.js",
+    "main.js.map": "/shazam/static/js/main.9ff85429.chunk.js.map",
+    "runtime-main.js": "/shazam/static/js/runtime-main.feaa9e0c.js",
+    "runtime-main.js.map": "/shazam/static/js/runtime-main.feaa9e0c.js.map",
+    "static/js/2.ec90b980.chunk.js": "/shazam/static/js/2.ec90b980.chunk.js",
+    "static/js/2.ec90b980.chunk.js.map": "/shazam/static/js/2.ec90b980.chunk.js.map",
+    "static/js/3.da277242.chunk.js": "/shazam/static/js/3.da277242.chunk.js",
+    "static/js/3.da277242.chunk.js.map": "/shazam/static/js/3.da277242.chunk.js.map",
+    "index.html": "/shazam/index.html",
+    "static/css/main.84a5d604.chunk.css.map": "/shazam/static/css/main.84a5d604.chunk.css.map",
+    "static/js/2.ec90b980.chunk.js.LICENSE.txt": "/shazam/static/js/2.ec90b980.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/shazam/static/media/background.09944567.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.feaa9e0c.js",
+    "static/js/2.ec90b980.chunk.js",
+    "static/css/main.84a5d604.chunk.css",
+    "static/js/main.9ff85429.chunk.js"
+  ]
+}
