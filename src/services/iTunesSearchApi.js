@@ -3,19 +3,23 @@ const iTunesSearchApi = async ({ album, artist, title }) => {
 
   const getAlbumsAPI = `https://itunes.apple.com/search?term=${song}&types=songs&limit=6`;
 
-  const APIResponse = await fetch(getAlbumsAPI);
-
-  const { results } = await APIResponse.json();
-
-  const { artworkUrl100 } =
-    results.find(({ trackName, artistName, collectionName }) => {
-      return (
-        artistName.toLowerCase() === artist.toLowerCase() &&
-        collectionName.toLowerCase() === album.toLowerCase() &&
-        trackName.toLowerCase() === title.toLowerCase()
-      );
-    }) || results[0] || {};
-  if (artworkUrl100) return artworkUrl100.replace('100x100', '300x300');
+  try {
+    const APIResponse = await fetch(getAlbumsAPI);
+  
+    const { results } = await APIResponse.json();
+  
+    const { artworkUrl100 } =
+      results.find(({ trackName, artistName, collectionName }) => {
+        return (
+          artistName.toLowerCase() === artist.toLowerCase() &&
+          collectionName.toLowerCase() === album.toLowerCase() &&
+          trackName.toLowerCase() === title.toLowerCase()
+        );
+      }) || results[0] || {};
+    if (artworkUrl100) return artworkUrl100.replace('100x100', '300x300');
+  } catch (err) {
+    console.error(err);
+  }
 };
 
 export default iTunesSearchApi;
