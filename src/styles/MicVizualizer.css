@@ -10,11 +10,16 @@
 .line {
   background-color: white;
   width: 4px;
-  min-height: 3px;
+  height: 3px;
+  max-height: 3px;
   border-radius: 3px;
+  transform: scaleY(1);
+  transition: max-height 1s ease, height 1s ease;
 }
 
 .line.isRecording {
+  transition: max-height 1s ease;
+  max-height: 43px;
   height: 43px;
-  transform: scaleY( .5 );
+  transform: scaleY(.5);
 }
