@@ -15,15 +15,17 @@ function App() {
   const {
     isRecording,
     setIsRecording,
-    identifiedSong,
     setIdentifiedSong,
     count,
     setCount,
+    identified,
+    setIdentified,
   } = useContext(AppContext);
   const [stream, setStream] = useState()
 
   const recognizeSong = async (file) => {
-    const { data, identified } = await identifySong(file);
+    const { data, identified: indentifiedBool } = await identifySong(file);
+    setIdentified(indentifiedBool);
     if (identified) {
       setIdentifiedSong(data);
       if (!data.artwork) {
@@ -76,15 +78,18 @@ function App() {
 
   return (
     <div className="App">
-      <div className={`microphone-container ${identifiedSong ? "identified" : ''}`}>
+      <div className={`microphone-container ${identified ? "identified" : ''}`}>
         <RecordButton
           stopRecording={stopRecording}
           startRecording={startRecording}
         />
         <MicVisualizer stream={stream} />
-        {isRecording && "Escutando..."}
+        <div className="state">
+          {isRecording && "Escutando..."}
+          {(identified === false && !isRecording) && "Não foi possível identificar essa música :/"}    
+        </div>
       </div>
-      {identifiedSong && <IdentifiedSongCard />}
+      {identified && <IdentifiedSongCard />}
     </div>
   );
 }
