@@ -1,4 +1,5 @@
 .identified-song {
+  animation: slideUp 0.7s ease;
   background: rgb(238, 236, 236);
   display: grid;
   border-radius: 20px;
@@ -33,4 +34,16 @@
 
 .song-info-wrapper > * {
   margin: 8px 15px 4px;
+}
+
+@keyframes slideUp {
+  from{
+    opacity: 0;
+    transform: translateY(30%);
+  }
+
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
