@@ -16,6 +16,7 @@ function App() {
     isRecording,
     setIsRecording,
     setIdentifiedSong,
+    identifiedSong,
     count,
     setCount,
     identified,
@@ -26,7 +27,7 @@ function App() {
   const recognizeSong = async (file) => {
     const { data, identified: indentifiedBool } = await identifySong(file);
     setIdentified(indentifiedBool);
-    if (identified) {
+    if (indentifiedBool) {
       setIdentifiedSong(data);
       if (!data.artwork) {
         const artwork = await iTunesSearchApi(data);
@@ -78,7 +79,7 @@ function App() {
 
   return (
     <div className="App">
-      <div className={`microphone-container ${identified ? "identified" : ''}`}>
+      <div className={`microphone-container ${identified && identifiedSong ? "identified" : ''}`}>
         <RecordButton
           stopRecording={stopRecording}
           startRecording={startRecording}
@@ -89,7 +90,7 @@ function App() {
           {(identified === false && !isRecording) && "Não foi possível identificar essa música :/"}    
         </div>
       </div>
-      {identified && <IdentifiedSongCard />}
+      {identifiedSong && <IdentifiedSongCard />}
     </div>
   );
 }
