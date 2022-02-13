@@ -90,7 +90,7 @@ function App() {
           {(identified === false && !isRecording) && "Não foi possível identificar essa música :/"}    
         </div>
       </div>
-      {identifiedSong && <IdentifiedSongCard />}
+      {identified && identifiedSong && <IdentifiedSongCard />}
     </div>
   );
 }
