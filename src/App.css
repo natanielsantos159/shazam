@@ -1,8 +1,22 @@
 
 .App {
+  height: 100vh
+}
+
+.App, .microphone-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh
+}
+
+.microphone-container {
+  padding: 50px;
+  row-gap: 40px;
+  position: absolute;
+}
+
+.microphone-container.identified {
+  top: 6vh;
+  transition: top 1s ease;
 }
