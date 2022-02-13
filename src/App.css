@@ -22,5 +22,9 @@
 .microphone-container.identified {
   transform: translate(-50%, 0);
   top: 6vh;
-  transition: top 1s ease;
+  transition: top 1s ease, transform 1s ease;
+}
+
+.state {
+  color: white
 }
