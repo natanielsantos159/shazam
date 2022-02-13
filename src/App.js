@@ -53,6 +53,7 @@ function App() {
       .then(() => {
         Mp3Recorder.start()
           .then((stream) => {
+            setIdentified(undefined)
             setStream(stream);
             setIsRecording(true);
             setCount(1);
