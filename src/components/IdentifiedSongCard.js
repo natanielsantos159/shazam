@@ -15,8 +15,8 @@ export default function IdentifiedSongCard() {
       )}
       <div className="song-info-wrapper">
         <h2 className="song-title">{identifiedSong.title}</h2>
-        <h3 className="song-artist">{identifiedSong.artist}</h3>
-        <h3 className="song-album">{identifiedSong.album}</h3>
+        <p className="song-artist">{identifiedSong.artist}</p>
+        <p className="song-album">{identifiedSong.album}</p>
       </div>
     </div>
   );
