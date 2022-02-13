@@ -76,12 +76,14 @@ function App() {
 
   return (
     <div className="App">
-      <RecordButton
-        stopRecording={stopRecording}
-        startRecording={startRecording}
-      />
-      {isRecording && "Escutando..."}
-      <MicVisualizer stream={stream} />
+      <div className={`microphone-container ${identifiedSong ? "identified" : ''}`}>
+        <RecordButton
+          stopRecording={stopRecording}
+          startRecording={startRecording}
+        />
+        <MicVisualizer stream={stream} />
+        {isRecording && "Escutando..."}
+      </div>
       {identifiedSong && <IdentifiedSongCard />}
     </div>
   );
