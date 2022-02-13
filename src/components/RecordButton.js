@@ -18,7 +18,6 @@ export default function RecordButton({ stopRecording, startRecording }) {
       <div class="blob"></div>
       <div class="blob"></div>
       <div class="blob"></div>
-      <div class="blob"></div>
     </button>
   );
 }
