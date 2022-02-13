@@ -15,7 +15,7 @@ const iTunesSearchApi = async ({ album, artist, title }) => {
         trackName.toLowerCase() === title.toLowerCase()
       );
     }) || results[0] || {};
-  if (artworkUrl100) return artworkUrl100;
+  if (artworkUrl100) return artworkUrl100.replace('100x100', '300x300');
 };
 
 export default iTunesSearchApi;
