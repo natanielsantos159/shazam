@@ -7,7 +7,7 @@ Caso queira rodá-lo na sua máquina, primeiro faça o git clone, depois instale
 <br/>
 <code>git clone</code>
 <br/>
-<code>cd trybe-redux</code>
+<code>cd songidentifier</code>
 <br/>
 <code>npm install</code>
 <br/>
