@@ -9,7 +9,7 @@ import "../styles/IdentifiedSongCard.css";
 
 export default function IdentifiedSongCard() {
   const { identifiedSong, itunesUrl } = useContext(AppContext);
-  const { title, artist, album, artwork } = identifiedSong;
+  const { title, artist, album, artwork } = identifiedSong || {};
   return (
     <div className="identified-song">
       <img

@@ -7,7 +7,7 @@ const iTunesSearchApi = async ({ album, artist, title }) => {
     const APIResponse = await fetch(getAlbumsAPI);
   
     const { results } = await APIResponse.json();
-    console.log(results)
+
     const { artworkUrl100, trackViewUrl } =
       results.find(({ trackName, artistName, collectionName }) => {
         return (
@@ -21,6 +21,7 @@ const iTunesSearchApi = async ({ album, artist, title }) => {
       artwork: artworkUrl100.replace('100x100', '300x300'),
       trackUrl: trackViewUrl
     };
+    return {};
   } catch (err) {
     console.error(err);
   }
