@@ -14,7 +14,7 @@
     "react-scripts": "4.0.3",
     "web-vitals": "^1.1.2"
   },
-  "homepage": "https:\/\/natanielsantos159.github.io/shazam",
+  "homepage": "https:\/\/natanielsantos159.github.io/songidentifier",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
