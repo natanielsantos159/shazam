@@ -2,7 +2,7 @@
   animation: slideUp 0.7s ease;
   background: rgb(238, 236, 236);
   display: grid;
-  border-radius: 20px;
+  border-radius: 14px;
   grid-template-rows: 1fr;
   grid-template-columns: 1fr 2fr;
   grid-gap: 15px;
@@ -24,6 +24,10 @@
   width: 130px;
 }
 
+.song-artwork {
+  border-radius: 6px;
+}
+
 .song-info-wrapper {
   height: 100%;
   width: 100%;
@@ -34,6 +38,10 @@
 
 .song-info-wrapper > * {
   margin: 8px 15px 4px;
+}
+
+.song-title {
+  font-size: 19px;
 }
 
 @keyframes slideUp {
