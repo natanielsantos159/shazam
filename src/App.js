@@ -21,15 +21,17 @@ function App() {
     setCount,
     identified,
     setIdentified,
-    itunesUrl,
     setItunesUrl,
   } = useContext(AppContext);
-  const [stream, setStream] = useState()
+  const [stream, setStream] = useState();
+  const [identifying, setIdentifying] = useState(false);
 
   const recognizeSong = async (file) => {
+    setIdentifying(true);
     const { data, identified: indentifiedBool } = await identifySong(file);
     setIdentified(indentifiedBool);
     if (indentifiedBool) {
+      setIdentifying(false);
       setIdentifiedSong(data);
       const { artwork, trackUrl } = await iTunesSearchApi(data);
       if (!data.artwork) setIdentifiedSong({ ...data, artwork });
@@ -90,6 +92,7 @@ function App() {
         <div className="state">
           {isRecording && "Escutando..."}
           {(identified === false && !isRecording) && "Não foi possível identificar essa música :/"}    
+          { identifying && 'Identificando...'}
         </div>
       </div>
       {identified && identifiedSong && <IdentifiedSongCard />}
