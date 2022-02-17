@@ -31,4 +31,4 @@ Para executar o app:
 - Manipular dados providos pelo microfone do usuário.
 - Conceito de `blob` e `buffer`.
 - Criar arquivo a partir de um `blob`.
-- Implementa um `visualizador de áudio` do microfone utilizando `Vanilla Javascript`.
+- Implementar um `visualizador de áudio` do microfone utilizando `Vanilla Javascript`.
