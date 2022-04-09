@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+import PropTypes from "prop-types"
 import { useEffect, useContext, useRef } from "react";
 import AppContext from "../context/AppContext";
 import "../styles/MicVizualizer.css";
@@ -82,9 +84,13 @@ export default function MicVisualizer({ stream }) {
 
   return (
     <div className="vizualizer">
-      {new Array(32).fill().map(() => (
-        <div className={`line ${isRecording ? 'isRecording' : ''}`}></div>
+      {new Array(32).fill().map((_current, i) => (
+        <div key={i} className={`line ${isRecording ? 'isRecording' : ''}`}></div>
       ))}
     </div>
   );
+}
+
+MicVisualizer.propTypes = {
+  stream: PropTypes.object
 }
