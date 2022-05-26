@@ -4,11 +4,14 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import Provider from "./context/Provider";
+import HistoryProvider from "./context/HistoryProvider";
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider>
-      <App />
+      <HistoryProvider>
+        <App />
+      </HistoryProvider>
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")
