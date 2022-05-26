@@ -19,6 +19,7 @@ export default function MicVisualizer({ stream }) {
   };
 
   const connectStream = (stream) => {
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
     const audioContext = new AudioContext();
     const analyser = audioContext.createAnalyser();
     const source = audioContext.createMediaStreamSource(stream);

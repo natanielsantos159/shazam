@@ -46,18 +46,39 @@ export default function RecordButton() {
   };
 
   const startRecording = () => {
-    navigator.mediaDevices
-      .getUserMedia({ audio: true, video: false })
-      .then(() => {
-        Mp3Recorder.start()
-          .then((stream) => {
-            setIdentified(undefined)
-            setStream(stream);
-            setIsRecording(true);
-            setCount(1);
-          })
-          .catch(console.error);
-      });
+    const onSuccessFn = () => {
+      Mp3Recorder.start()
+        .then((stream) => {
+          setIdentified(undefined)
+          setStream(stream);
+          setIsRecording(true);
+          setCount(1);
+        })
+        .catch(console.error);
+    };
+
+    if (navigator.mediaDevices === undefined) {
+      navigator.mediaDevices = {};
+    }
+
+    if (navigator.mediaDevices.getUserMedia === undefined) {
+      navigator.mediaDevices.getUserMedia = function(constraints) {
+        let getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+  
+        if (!getUserMedia) {
+          return Promise.reject(new Error('getUserMedia is not implemented in this browser'));
+        }
+    
+        return new Promise(function(resolve, reject) {
+          getUserMedia.call(navigator, constraints, resolve, reject);
+        });
+      }
+    }
+  
+    navigator.mediaDevices.getUserMedia({ audio: true, video: false })
+      .then(onSuccessFn)
+      .catch(console.error);
+
   };
 
   const stopRecording = () => {
