@@ -24,7 +24,7 @@ export default function IdentifyPage() {
         <MicVisualizer stream={stream} />
         <div className="status">{status && status}</div>
       </div>
-      {identified && identifiedSong && <IdentifiedSongCard />}
+      {identified && identifiedSong && <IdentifiedSongCard songInfo={identifiedSong} />}
     </>
   );
 }
