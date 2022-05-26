@@ -5,6 +5,7 @@ import MicRecorder from "mic-recorder-to-mp3";
 import identifySong from "../services/identifySongApi";
 import iTunesSearchApi from "../services/iTunesSearchApi";
 import '../styles/RecordButton.css';
+import HistoryContext from "../context/HistoryContext";
 
 const Mp3Recorder = new MicRecorder({ bitRate: 128 });
 
@@ -21,6 +22,7 @@ export default function RecordButton() {
     count,
     setStatus,
   } = useContext(AppContext);
+  const { addSongToHistory } = useContext(HistoryContext);
 
   useEffect(() => {
     let timer;
@@ -38,13 +40,19 @@ export default function RecordButton() {
     setStatus("Identificando...");
     const { data, identified: indentifiedBool } = await identifySong(file);
     setIdentified(indentifiedBool);
+
     if (indentifiedBool) {
       setStatus(undefined);
       setIdentifying(false);
       setIdentifiedSong(data);
-      const { artwork, trackUrl } = await iTunesSearchApi(data);
+      const { artwork, trackUrl: itunesUrl } = await iTunesSearchApi(data);
       if (!data.artwork) setIdentifiedSong({ ...data, artwork });
-      setItunesUrl(trackUrl);
+      setItunesUrl(itunesUrl);
+      addSongToHistory({ 
+        ...data,
+        itunesUrl,
+        artwork: artwork || data.artwork,
+      });
     }
 
     if (!indentifiedBool) setStatus("Não foi possível identificar a música");

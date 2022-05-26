@@ -14,13 +14,19 @@ export default function HistoryProvider({ children }) {
   }
 
   const addSongToHistory = (songInfo) => {
-    const newHistory = [...history, songInfo];
+    const identifiedId = history.length 
+      ? history[history.length - 1].identifiedId + 1
+      : 1;
+
+    songInfo.identifiedId = identifiedId;
+    const newHistory = [songInfo, ...history];
     setHistory(newHistory);
   };
 
   const removeSongToHistory = (songInfo) => {
-    const index = history.findIndex((song) => song.recordId === songInfo.recordId);
-    const filtered = history.splice(index, 1);
+    const copyHistory = [...history];
+    const index = copyHistory.findIndex((song) => song.identifiedId === songInfo.identifiedId);
+    const filtered = copyHistory.splice(index, 1);
     setHistory(filtered);
   };
 
