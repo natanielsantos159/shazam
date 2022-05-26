@@ -1,0 +1,24 @@
+.history-page {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.identified-songs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 13vh;
+  gap: 3vh;
+  padding-bottom: 13vh;
+}
+
+.identified-songs .identified-song {
+  position: relative;
+  bottom: unset;
+  min-height: auto;
+}
