@@ -73,3 +73,17 @@
     transform: translateY(0);
   }
 }
+
+@media screen and (max-width: 500px) {
+  .identified-song .song-title {
+    font-size: 13px;
+  }
+
+  .identified-song {
+    max-width: 75vw;
+  }
+
+  .links-container img {
+    height: 25px;
+  }
+}
