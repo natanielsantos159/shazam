@@ -19,6 +19,7 @@ export default function Provider({ children }) {
   const [itunesUrl, setItunesUrl] = useState();
   const [stream, setStream] = useState();
   const [identifying, setIdentifying] = useState(false);
+  const [status, setStatus] = useState(undefined);
 
   const contextValues = {
     isRecording,
@@ -35,6 +36,8 @@ export default function Provider({ children }) {
     setStream,
     identifying,
     setIdentifying,
+    status,
+    setStatus,
   };
   return (
     <AppContext.Provider value={contextValues}>{children}</AppContext.Provider>

@@ -9,7 +9,7 @@ import '../styles/RecordButton.css';
 const Mp3Recorder = new MicRecorder({ bitRate: 128 });
 
 export default function RecordButton() {
-  const { 
+  const {
     isRecording, 
     setIsRecording,
     setIdentifiedSong,
@@ -19,6 +19,7 @@ export default function RecordButton() {
     setStream,
     setCount,
     count,
+    setStatus,
   } = useContext(AppContext);
 
   useEffect(() => {
@@ -34,15 +35,19 @@ export default function RecordButton() {
 
   const recognizeSong = async (file) => {
     setIdentifying(true);
+    setStatus("Identificando...");
     const { data, identified: indentifiedBool } = await identifySong(file);
     setIdentified(indentifiedBool);
     if (indentifiedBool) {
+      setStatus(undefined);
       setIdentifying(false);
       setIdentifiedSong(data);
       const { artwork, trackUrl } = await iTunesSearchApi(data);
       if (!data.artwork) setIdentifiedSong({ ...data, artwork });
       setItunesUrl(trackUrl);
     }
+
+    if (!indentifiedBool) setStatus("Não foi possível identificar a música");
   };
 
   const startRecording = () => {
@@ -52,6 +57,7 @@ export default function RecordButton() {
           setIdentified(undefined)
           setStream(stream);
           setIsRecording(true);
+          setStatus("Gravando...");
           setCount(1);
         })
         .catch(console.error);

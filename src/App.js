@@ -9,11 +9,10 @@ import "./App.css";
 
 function App() {
   const {
-    isRecording,
     identifiedSong,
     identified,
     stream,
-    identifying,
+    status,
   } = useContext(AppContext);
 
   return (
@@ -21,10 +20,8 @@ function App() {
       <div className={`microphone-container ${identified && identifiedSong ? "identified" : ''}`}>
         <RecordButton />
         <MicVisualizer stream={stream} />
-        <div className="state">
-          {isRecording && "Escutando..."}
-          {(identified === false && !isRecording) && "Não foi possível identificar essa música :/"}    
-          { identifying && 'Identificando...'}
+        <div className="status">
+          { status && status }
         </div>
       </div>
       {identified && identifiedSong && <IdentifiedSongCard />}
