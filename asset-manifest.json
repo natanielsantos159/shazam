@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/songidentifier/static/css/main.149785db.chunk.css",
-    "main.js": "/songidentifier/static/js/main.9818bfa7.chunk.js",
-    "main.js.map": "/songidentifier/static/js/main.9818bfa7.chunk.js.map",
-    "runtime-main.js": "/songidentifier/static/js/runtime-main.1f71a5a8.js",
-    "runtime-main.js.map": "/songidentifier/static/js/runtime-main.1f71a5a8.js.map",
-    "static/js/2.0fac59d1.chunk.js": "/songidentifier/static/js/2.0fac59d1.chunk.js",
-    "static/js/2.0fac59d1.chunk.js.map": "/songidentifier/static/js/2.0fac59d1.chunk.js.map",
-    "static/js/3.da277242.chunk.js": "/songidentifier/static/js/3.da277242.chunk.js",
-    "static/js/3.da277242.chunk.js.map": "/songidentifier/static/js/3.da277242.chunk.js.map",
+    "main.css": "/songidentifier/static/css/main.755d61b8.chunk.css",
+    "main.js": "/songidentifier/static/js/main.093aef07.chunk.js",
+    "main.js.map": "/songidentifier/static/js/main.093aef07.chunk.js.map",
+    "runtime-main.js": "/songidentifier/static/js/runtime-main.31b5b338.js",
+    "runtime-main.js.map": "/songidentifier/static/js/runtime-main.31b5b338.js.map",
+    "static/js/2.b35d3398.chunk.js": "/songidentifier/static/js/2.b35d3398.chunk.js",
+    "static/js/2.b35d3398.chunk.js.map": "/songidentifier/static/js/2.b35d3398.chunk.js.map",
+    "static/js/3.72a9b4b8.chunk.js": "/songidentifier/static/js/3.72a9b4b8.chunk.js",
+    "static/js/3.72a9b4b8.chunk.js.map": "/songidentifier/static/js/3.72a9b4b8.chunk.js.map",
     "index.html": "/songidentifier/index.html",
-    "static/css/main.149785db.chunk.css.map": "/songidentifier/static/css/main.149785db.chunk.css.map",
-    "static/js/2.0fac59d1.chunk.js.LICENSE.txt": "/songidentifier/static/js/2.0fac59d1.chunk.js.LICENSE.txt",
+    "static/css/main.755d61b8.chunk.css.map": "/songidentifier/static/css/main.755d61b8.chunk.css.map",
+    "static/js/2.b35d3398.chunk.js.LICENSE.txt": "/songidentifier/static/js/2.b35d3398.chunk.js.LICENSE.txt",
     "static/media/index.css": "/songidentifier/static/media/background.09944567.svg",
     "static/media/deezer.b3776bfe.png": "/songidentifier/static/media/deezer.b3776bfe.png",
     "static/media/itunes.7a2157ca.png": "/songidentifier/static/media/itunes.7a2157ca.png",
@@ -19,9 +19,9 @@
     "static/media/youtube.6f9e32ba.png": "/songidentifier/static/media/youtube.6f9e32ba.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.1f71a5a8.js",
-    "static/js/2.0fac59d1.chunk.js",
-    "static/css/main.149785db.chunk.css",
-    "static/js/main.9818bfa7.chunk.js"
+    "static/js/runtime-main.31b5b338.js",
+    "static/js/2.b35d3398.chunk.js",
+    "static/css/main.755d61b8.chunk.css",
+    "static/js/main.093aef07.chunk.js"
   ]
 }
