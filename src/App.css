@@ -1,6 +1,7 @@
 
 .App {
-  height: 100vh
+  height: 100vh;
+  color: #ffffffd1;
 }
 
 .App, .microphone-container {
@@ -23,10 +24,6 @@
   transform: translate(-50%, 0);
   top: 6vh;
   transition: top 1s ease, transform 1s ease;
-}
-
-.status {
-  color: white
 }
 
 @media screen and (max-width: 500px) {

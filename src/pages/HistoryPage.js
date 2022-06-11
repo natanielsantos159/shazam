@@ -9,9 +9,9 @@ export default function HistoryPage() {
   return (
     <main className="history-page">
       <div className="identified-songs">
-        {history.map((songInfo, i) => (
+        {history.length ? history.map((songInfo, i) => (
           <IdentifiedSongCard key={i} songInfo={songInfo} />
-        ))}
+        )) : ("Histórico vazio.")}
       </div>
     </main>
   );
